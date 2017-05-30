@@ -5,9 +5,20 @@ import MyForm from "./myForm.js";
 
 
 class App extends Component {
+     constructor(props){
+        super(props);
+        this.state = {
+            name: "",
+            email: ""
+        }
+        this.saveNameToState = this.saveNameToState.bind(this);
+        this.saveEmailToState = this.saveEmailToState.bind(this);
+     }
   render() {
     return (
-      <div className="App">
+      <div className="App"
+        super
+        >
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Welcome to React</h2>
@@ -15,10 +26,28 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
-        <MyForm />
+        <MyForm saveNameToState={this.saveNameToState}
+                saveEmailToState={this.saveEmailToState}
+                name={this.state.name}
+                email={this.state.email}/>
       </div>
     );
   }
+    
+    saveNameToState(event){
+        let name = event.target.value;
+        this.setState({
+            name: name
+        });
+        
+    }
+    
+    saveEmailToState(event){
+        let email = event.target.value;
+        this.setState({
+            email: email
+        });
+    } 
 }
 
 export default App;
