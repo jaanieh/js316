@@ -9,8 +9,19 @@ it('renders without crashing', () => {
 });
 
 test('testar inputName', () => {
-    let wrapper = shallow(<MyForm/>);
-        const inputName = <input />;
-        expect(wrapper.contains(inputName)).toBe(true);
+    let wrapper = mount(<MyForm/>);
+        wrapper.find({className: 'name' });
         
 });
+
+test('testar inputEmail', () => {
+    let wrapper = mount(<MyForm/>);
+    wrapper.find({className: 'email'});
+});
+
+test('testar button', () => {
+    let wrapper = shallow(<Button />);
+    let actual = wrapper.find("button").hasClass("button");
+    let expected = true;
+    expect(actual).toBe(expected);
+})
