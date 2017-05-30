@@ -14,6 +14,7 @@ class App extends Component {
         }
         this.saveNameToState = this.saveNameToState.bind(this);
         this.saveEmailToState = this.saveEmailToState.bind(this);
+        this.clearButton = this.clearButton.bind(this);
      }
   render() {
     return (
@@ -29,7 +30,8 @@ class App extends Component {
                 saveEmailToState={this.saveEmailToState}
                 name={this.state.name}
                 email={this.state.email}/>
-        <Button />
+        
+        <Button clearButton={this.clearButton}/>
       </div>
     );
   }
@@ -48,6 +50,13 @@ class App extends Component {
             email: email
         });
     } 
+    
+    clearButton(){
+        this.setState({
+            name: '',
+            email: ''
+        });
+    }
 }
 
 export default App;

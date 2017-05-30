@@ -4,7 +4,7 @@ class Button extends Component {
     render(){
         return (
         <div>
-            <button className="buttonClass">Clear</button>
+            <button className="buttonClass" onClick={this.props.clearButton}>Clear</button>
         </div>
         );
     }
